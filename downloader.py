@@ -245,10 +245,10 @@ class FDownloader:
                     try:
                         # Resizing window size for exactly manga page size
                         width = self.browser.execute_script(
-                            f"return document.getElementsByTagName('canvas')[{n-2}].width"
+                            f"return document.getElementsByClassName('layer')[{n-2}].firstChild.width"
                         )
                         height = self.browser.execute_script(
-                            f"return document.getElementsByTagName('canvas')[{n-2}].height"
+                            f"return document.getElementsByClassName('layer')[{n-2}].firstChild.height"
                         )
                         self.browser.set_window_size(width, height)
                     except JavascriptException:
